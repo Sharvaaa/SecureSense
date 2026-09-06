@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "SecureSense",
+  "version": "0.1.0",
+  "description": "Real-time website security analysis and protection.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "assets/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["assets/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
