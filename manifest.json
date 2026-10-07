@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "SecureSense",
+  "version": "1.0.0",
+  "description": "A browser extension that helps users identify potential online security threats.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}

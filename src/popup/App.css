@@ -182,3 +182,31 @@
     border-right-color: var(--border);
   }
 }
+.risk-card {
+  border: 1px solid #ddd;
+}
+
+.risk-card.safe {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.risk-card.low {
+  background: #f1f8e9;
+  color: #558b2f;
+}
+
+.risk-card.medium {
+  background: #fff8e1;
+  color: #f57c00;
+}
+
+.risk-card.high {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.risk-card.critical {
+  background: #ffebee;
+  color: #c62828;
+}
