@@ -26,11 +26,25 @@ function App() {
         }
 
         if (!response?.success) {
-          setError(response?.error || 'Unable to analyze the current website.');
-          return;
-        }
+  setError(response?.error || 'Unable to analyze the current website.');
+  return;
+}
 
-        setAnalysis(response.analysis);
+const analyzedUrl = response.analysis?.url || '';
+
+if (
+  analyzedUrl.startsWith('chrome://') ||
+  analyzedUrl.startsWith('chrome-extension://') ||
+  analyzedUrl.startsWith('edge://') ||
+  analyzedUrl.startsWith('about:')
+) {
+  setError(
+    'This is a browser-internal page and cannot be scanned by SecureSense.',
+  );
+  return;
+}
+
+setAnalysis(response.analysis);
       },
     );
   }, []);
